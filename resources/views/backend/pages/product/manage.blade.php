@@ -49,7 +49,7 @@
                         
                     </td>
                     <td>
-                        <a href="" class="btn btn-info btn-sm">Edit</a>
+                        <a href="{{route('editproduct',$tdata->id)}}" class="btn btn-info btn-sm">Edit</a>
                         <a href="{{route('deleteproduct',$tdata->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete{{$tdata->id}}">

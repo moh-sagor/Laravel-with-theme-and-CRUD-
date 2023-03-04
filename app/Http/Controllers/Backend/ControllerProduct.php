@@ -59,7 +59,17 @@ class ControllerProduct extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
+        return view("backend.pages.product.edit", compact('product'));
+    }
+    public function update(Request $rqst, $id)
+    {
+        $product = Product::find($id);
+        $product->name = $rqst->name;
+        $product->des = $rqst->des;
+        $product->price = $rqst->price;
+        $product->quantity = $rqst->quantity;
+        $product->status = $rqst->status;
         $product->update();
-        return back();
+        return redirect()->route('showproduct');
     }
 }

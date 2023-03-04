@@ -32,3 +32,4 @@ Route::get('/activeproduct/{id}', [ControllerProduct::class, 'active'])->name('a
 Route::get('/inactiveproduct/{id}', [ControllerProduct::class, 'inactive'])->name('inactiveproduct');
 Route::get('/deleteproduct/{id}', [ControllerProduct::class, 'delete'])->name('deleteproduct');
 Route::get('/editproduct/{id}', [ControllerProduct::class, 'edit'])->name('editproduct');
+Route::post('/updateproduct/{id}', [ControllerProduct::class, 'update'])->name('updateproduct');

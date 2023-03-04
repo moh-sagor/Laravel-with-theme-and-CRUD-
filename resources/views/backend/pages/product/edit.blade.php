@@ -24,30 +24,30 @@
                 <h5 class="mb-0 text-info">Update Product</h5>
             </div>
             <hr/>
-            <form action="{{ route('insertproduct')}}" method="POST">
+            <form action="{{ route('updateproduct',$product->id)}}" method="POST">
                 @csrf 
             <div class="row mb-3">
                 <label for="name" class="col-sm-3 col-form-label">Product Name</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Product Name">
+                    <input type="text" class="form-control" id="name" name="name" value="{{$product->name}}" placeholder="Enter Product Name">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="des" class="col-sm-3 col-form-label">Product Description</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="des" name="des" placeholder="Enter Product Description">
+                    <input type="text" class="form-control" id="des" name="des" value="{{$product->des}}" placeholder="Enter Product Description">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="price" class="col-sm-3 col-form-label">Price</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="price"  name="price"placeholder="Product Price">
+                    <input type="text" class="form-control" id="price" value="{{$product->price}}"  name="price"placeholder="Product Price">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="quantity" class="col-sm-3 col-form-label">Quantity</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Product Quantity">
+                    <input type="text" class="form-control" id="quantity"value="{{$product->quantity}}" name="quantity" placeholder="Product Quantity">
                 </div>
             </div>
             <div class="row mb-3">
@@ -55,15 +55,15 @@
                 <div class="col-sm-9">
                     <select class="form-control" name="status" id="status">
                         <option value="">------Select Status-----</option>
-                        <option value="1">Active</option>
-                        <option value="2">Inactive</option>
+                        <option value="1" @if($product-> status == "1") selected @endif >Active</option>
+                        <option value="2" @if($product-> status == "2" )selected @endif>Inactive</option>
                     </select>
                 </div>
             </div>
             <div class="row">
                 <label class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-9">
-                    <button type="submit" class="btn btn-info px-5 offset-4">Add Product</button>
+                    <button type="submit" class="btn btn-info px-5 offset-4">Update Product</button>
                 </div>
             </div>
         </form>
