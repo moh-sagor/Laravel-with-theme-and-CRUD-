@@ -52,12 +52,12 @@
                         <a href="" class="btn btn-info btn-sm">Edit</a>
                         <a href="{{route('deleteproduct',$tdata->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete{{$tdata->id}}">
                             Modal Delete
                         </button>
                         
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="delete{{$tdata->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

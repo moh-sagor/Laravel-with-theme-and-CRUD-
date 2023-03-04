@@ -54,4 +54,12 @@ class ControllerProduct extends Controller
         $product->delete();
         return back();
     }
+
+
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        $product->update();
+        return back();
+    }
 }
