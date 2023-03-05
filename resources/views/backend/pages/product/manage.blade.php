@@ -31,7 +31,7 @@
                 <tbody>
                   
                   <tr>
-                     <@php
+                     @php
                          $sl = 1;
                      @endphp
                     @foreach ($products as $tdata)
