@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\Frontend;
 use App\Http\Controllers\Backend\Backend;
 use App\Http\Controllers\Backend\ControllerProduct;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,9 @@ Route::get('/activecategory/{id}', [CategoryController::class, 'active']);
 Route::get('/inactivecategory/{id}', [CategoryController::class, 'inactive']);
 Route::get('/editcategory/{id}', [CategoryController::class, 'edit']);
 Route::post('/updatecategory/{id}', [CategoryController::class, 'update']);
+
+// for Brand CRUD 
+Route::get('/addbrand', [BrandController::class, 'index'])->name('addbrand');
+Route::post('/storebrand', [BrandController::class, 'store'])->name('storebrand');
+Route::get('/showbrand', [BrandController::class, 'show'])->name('showbrand');
+Route::get('/viewbrand/{id}', [BrandController::class, 'view'])->name('viewbrand');
