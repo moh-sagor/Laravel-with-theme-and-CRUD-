@@ -43,4 +43,4 @@ Route::get('/deletecategory/{id}', [CategoryController::class, 'destroy']);
 Route::get('/activecategory/{id}', [CategoryController::class, 'active']);
 Route::get('/inactivecategory/{id}', [CategoryController::class, 'inactive']);
 Route::get('/editcategory/{id}', [CategoryController::class, 'edit']);
-Route::get('/updatecategory/{id}', [CategoryController::class, 'update']);
+Route::post('/updatecategory/{id}', [CategoryController::class, 'update']);
