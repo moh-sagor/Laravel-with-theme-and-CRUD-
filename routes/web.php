@@ -38,3 +38,9 @@ Route::post('/updateproduct/{id}', [ControllerProduct::class, 'update'])->name('
 // for Category CRUD 
 Route::get('/managecategory', [CategoryController::class, 'index'])->name('managecategory');
 Route::post('/addcategory', [CategoryController::class, 'store']);
+Route::get('/showcategory', [CategoryController::class, 'show']);
+Route::get('/deletecategory/{id}', [CategoryController::class, 'destroy']);
+Route::get('/activecategory/{id}', [CategoryController::class, 'active']);
+Route::get('/inactivecategory/{id}', [CategoryController::class, 'inactive']);
+Route::get('/editcategory/{id}', [CategoryController::class, 'edit']);
+Route::get('/updatecategory/{id}', [CategoryController::class, 'update']);

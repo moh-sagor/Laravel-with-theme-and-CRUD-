@@ -41,3 +41,4 @@
 </script>
 <!--app JS-->
 <script src="{{asset('backend')}}/assets/js/app.js"></script>
+<script src="{{asset('backend')}}/assets/js/catajax.js"></script>

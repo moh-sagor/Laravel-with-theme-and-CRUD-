@@ -35,39 +35,75 @@ class CategoryController extends Controller
         $cat->status = $request->status;
         $cat->save();
         return response()->json([
-            "msg" => "Data Successfully Interted"
+            "msg" => "Data Successfully Inserted"
         ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        $cats = Category::all();
+        return response()->json([
+            "status" => "200",
+            "allData" => $cats
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $cat = Category::find($id);
+        return response()->json([
+            "allData" => $cat
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $cat = Category::find($id);
+        $cat->name = $request->name;
+        $cat->des = $request->des;
+        $cat->status = $request->status;
+        $cat->update();
+        return response()->json([
+            "msg" => "Data Successfully Updated"
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $cat = Category::find($id);
+        $cat->delete();
+        return response()->json([
+            "msg" => "Data Successfully Deleted"
+        ]);
+    }
+    public function active($id)
+    {
+        $cat = Category::find($id);
+        $cat->status = "2";
+        $cat->update();
+        return response()->json([
+            "msg" => "Status Successfully Change"
+        ]);
+    }
+    public function inactive($id)
+    {
+        $cat = Category::find($id);
+        $cat->status = "1";
+        $cat->update();
+        return response()->json([
+            "msg" => "Status Successfully Change"
+        ]);
     }
 }

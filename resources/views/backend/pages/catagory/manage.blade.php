@@ -31,6 +31,7 @@
                     </tr>
                 </thead>
                 <tbody class="allData">
+                    
 
                 </tbody>    
             </table>
@@ -50,19 +51,19 @@
             <div class="row mb-3">
                 <label for="cat-name" class="col-sm-3 col-form-label">Category Name</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="cat-name" name="cat-name" placeholder="Enter Category Name">
+                    <input type="text" class="form-control cat-name" id="cat-name" name="cat-name" placeholder="Enter Category Name">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="cat-des" class="col-sm-3 col-form-label">Category Description</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="cat-des" name="cat-des" placeholder="Enter Category Description">
+                    <input type="text" class="form-control cat-des" id="cat-des" name="cat-des" placeholder="Enter Category Description">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="cat-status" class="col-sm-3 col-form-label">Status</label>
                 <div class="col-sm-9">
-                    <select class="form-control" name="cat-status" id="cat-status">
+                    <select class="form-control cat-status" name="cat-status" id="cat-status">
                         <option value="">------Select Status-----</option>
                         <option value="1">Active</option>
                         <option value="2">Inactive</option>
@@ -73,6 +74,25 @@
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <a href="" type="button" class="btn btn-info cat-add">Add</a>
+        <a type="button" style="display: none" class="btn btn-info cat-update">update</a>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+{{-- Delete Modal  --}}
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+     Are you sure to Delete ?
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button value="'+ val.id + '" type="button" class="btn btn-danger modal-cat-delete">Delete</button>
         </div>
     </div>
     </div>
