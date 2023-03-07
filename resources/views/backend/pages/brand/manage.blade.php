@@ -39,15 +39,17 @@
                     <td><img height="100" src="{{asset('backend/assets/brand/'.$tdata->image)}}" alt="{{$tdata->image}}" ></td>
                     <td>
                         <a href="{{route('viewbrand',$tdata->id)}}" class="btn btn-warning btn-sm">View</a>
-                        <a href="{{route('editproduct',$tdata->id)}}" class="btn btn-info btn-sm">Edit</a>
-                        <a href="{{route('deleteproduct',$tdata->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="{{route('editbrand',$tdata->id)}}" class="btn btn-info btn-sm">Edit</a>
+                        <a href="{{route('destroygallery',$tdata->id)}}" class="btn btn-danger btn-sm">Delete</a>
+
+
                         <!-- Button trigger modal -->
-                        {{-- <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete{{$tdata->id}}">
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deletebrand{{$tdata->id}}">
                             Modal Delete
-                        </button> --}}
+                        </button>
                         
                         <!-- Modal -->
-                        <div class="modal fade" id="delete{{$tdata->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="deletebrand{{$tdata->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -59,7 +61,7 @@
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <a href="{{route('deleteproduct',$tdata->id)}}" type="button" class="btn btn-danger">Delete</a>
+                                <a href="{{route('destroygallery',$tdata->id)}}" type="button" class="btn btn-danger">Delete</a>
                                 </div>
                             </div>
                             </div>

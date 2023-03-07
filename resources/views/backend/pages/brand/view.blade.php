@@ -24,34 +24,8 @@
     <div class="col-md-6">
         <h4>Gallery Images</h4>
         @foreach ($galleries as $gallery)
-        <style>
-            .gallery{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                margin: 10px;
-                height: 150px;
-                width: 175px;
-
-            }
-            .gallery img{
-                padding:10px;
-                width: 100%;
-                height:100%;
-            }
-            .delete-btn{
-                position:absolute; 
-                right: 1px;
-                top:1px;
-            }
-    
-
-
-        </style>
         <div class="gallery">
         <img  src="{{asset('backend/assets/brand/gallery/'.$gallery->images)}}" alt="">
-        <a href="" class="delete-btn btn btn-danger btn-sm">X</a>
     </div>
         @endforeach
     </div>

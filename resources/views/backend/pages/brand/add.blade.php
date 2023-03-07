@@ -55,6 +55,8 @@
                     <input type="file" class="form-control image" id="image"  name="image">
                 </div>
             </div>
+            <form action="{{route('storebrand')}} " method="POST" enctype="multipart/form-data">
+                @csrf 
             <div class="row mb-3">
                 <label for="images" class="col-sm-3 col-form-label">Gallery Image</label>
                 <div class="col-sm-9">

@@ -51,3 +51,8 @@ Route::get('/addbrand', [BrandController::class, 'index'])->name('addbrand');
 Route::post('/storebrand', [BrandController::class, 'store'])->name('storebrand');
 Route::get('/showbrand', [BrandController::class, 'show'])->name('showbrand');
 Route::get('/viewbrand/{id}', [BrandController::class, 'view'])->name('viewbrand');
+Route::get('/editbrand/{id}', [BrandController::class, 'edit'])->name('editbrand');
+Route::post('/updatebrand/{id}', [BrandController::class, 'update'])->name('updatebrand');
+Route::get('/deletegallery/{id}', [BrandController::class, 'deletegallery'])->name('deletegallery');
+Route::post('/addgallery/{id}', [BrandController::class, 'addgallery'])->name('addgallery');
+Route::get('/destroygallery/{id}', [BrandController::class, 'destroy'])->name('destroygallery');
