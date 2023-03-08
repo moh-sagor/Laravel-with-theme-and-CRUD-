@@ -35,7 +35,7 @@
                     @foreach ($brands as $tdata)
                     <td>{{$sl++}}</td>
                     <td>{{$tdata->name}}</td>
-                    <td>{{$tdata->cat_id}}</td>
+                    <td>{{$tdata->catinfo->name}}</td>
                     <td><img height="100" src="{{asset('backend/assets/brand/'.$tdata->image)}}" alt="{{$tdata->image}}" ></td>
                     <td>
                         <a href="{{route('viewbrand',$tdata->id)}}" class="btn btn-warning btn-sm">View</a>

@@ -56,3 +56,7 @@ Route::post('/updatebrand/{id}', [BrandController::class, 'update'])->name('upda
 Route::get('/deletegallery/{id}', [BrandController::class, 'deletegallery'])->name('deletegallery');
 Route::post('/addgallery/{id}', [BrandController::class, 'addgallery'])->name('addgallery');
 Route::get('/destroygallery/{id}', [BrandController::class, 'destroy'])->name('destroygallery');
+
+
+// ajax insert 
+Route::post('/insertbrand', [BrandController::class, 'insert'])->name('insertbrand');

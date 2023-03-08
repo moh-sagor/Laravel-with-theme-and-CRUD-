@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Brand_Gallery;
@@ -173,5 +174,53 @@ class BrandController extends Controller
             }
         }
         return back();
+    }
+
+
+    function insert(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'cat_id' => 'required',
+            'image' => 'required | mimes:jpeg,jpg,png,gif,JPG,JPEG,PNG,GIF',
+            'images' => 'required', //| mimes:jpeg,jpg,png,gif,JPG,JPEG,PNG,GIF
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'failed',
+                'errors' => $validator->messages()
+            ]);
+        } else {
+            $brand = new Brand;
+            if ($request->image) {
+                $image = $request->file('image');
+                $customName = rand() . "." . $image->getClientOriginalExtension();
+                $location = public_path("backend/assets/brand/" . $customName);
+                Image::make($image)->resize(200, 300)->save($location);
+            }
+            $brand->name = $request->name;
+            $brand->cat_id = $request->cat_id;
+            $brand->image = $customName;
+            $brand->save();
+
+            $brandId = Brand::where('name', $request->name)->first();
+
+            if ($request->images) {
+                $images = $request->file('images');
+                foreach ($images as $image) {
+                    $customName = rand() . "." . $image->getClientOriginalExtension();
+                    $location = public_path("backend/assets/brand/gallery/" . $customName);
+                    Image::make($image)->resize(200, 300)->save($location);
+                    $brand_gallery = new Brand_Gallery;
+                    $brand_gallery->brand_id = $brandId->id;
+                    $brand_gallery->images = $customName;
+                    $brand_gallery->save();
+                }
+
+            }
+            return response()->json([
+                'msg' => 'Data Sucessfully Inserted'
+            ]);
+        }
     }
 }

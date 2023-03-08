@@ -145,4 +145,34 @@ jQuery(document).ready(function () {
         });
 
     });
+
+    // image handling with ajax 
+
+    jQuery(document).on('submit', '#brandData', function (e) {
+        e.preventDefault();
+        let allData = new FormData(jQuery("#brandData")[0]);
+
+        jQuery.ajax({
+            url: "/insertbrand",
+            type: 'POST',
+            typeType: "JSON",
+            data: allData,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                if (res.status == 'failed') {
+                    jQuery(".spn-name").text(res.errors.name);
+                    jQuery(".spn-cat").text(res.errors.cat_id);
+                    jQuery(".spn-image").text(res.errors.image);
+                    jQuery(".spn-images").text(res.errors.images);
+                }
+                else {
+                    alert(res.msg);
+                }
+            }
+        });
+
+    });
+
+
 });

@@ -24,15 +24,17 @@
                 <h5 class="mb-0 text-info">Add Brand</h5>
             </div>
             <hr/>
-            <form action="{{route('storebrand')}} " method="POST" enctype="multipart/form-data">
+            <form id="brandData" action="{{route('storebrand')}} " method="POST" enctype="multipart/form-data">
                 @csrf 
             <div class="row mb-3">
                 <label for="name" class="col-sm-3 col-form-label">Brand Name</label>
                 <div class="col-sm-9">
                     <input type="text" value="{{old('name')}}" class="form-control" id="name" name="name" placeholder="Enter Brand Name">
-                    @error('name')
-                    <span class="text-danger">{{$message}}</span>
-                    @enderror
+                    
+                {{-- ajax validate error message  --}}
+                <span class="text-danger spn-name"></span>
+
+                    
                 </div>
             </div>
             <div class="row mb-3">
@@ -44,23 +46,26 @@
                         <option value="{{$cat->id}}">{{$cat->name}}</option>
                         @endforeach
                     </select>
-                    @error('cat_id')
-                    <span class="text-danger">{{$message}}</span>
-                    @enderror
+                   {{-- ajax validate error message  --}}
+                <span class="text-danger spn-cat"></span>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="image" class="col-sm-3 col-form-label">Brand Image</label>
                 <div class="col-sm-9">
                     <input type="file" class="form-control image" id="image"  name="image">
+                    {{-- ajax validate error message  --}}
+                <span class="text-danger spn-image"></span>
                 </div>
+                
             </div>
-            <form action="{{route('storebrand')}} " method="POST" enctype="multipart/form-data">
-                @csrf 
+           
             <div class="row mb-3">
                 <label for="images" class="col-sm-3 col-form-label">Gallery Image</label>
                 <div class="col-sm-9">
                     <input type="file" class="form-control images" id="images"  name="images[]" multiple>
+                    {{-- ajax validate error message  --}}
+                <span class="text-danger spn-images"></span>
                 </div>
             </div>
             <div class="row">

@@ -13,4 +13,8 @@ class Brand extends Model
         'name',
         'image'
     ];
+    public function catinfo()
+    {
+        return $this->belongsTo(Category::class, 'cat_id');
+    }
 }
