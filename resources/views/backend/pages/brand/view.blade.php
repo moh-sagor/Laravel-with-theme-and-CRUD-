@@ -17,7 +17,7 @@
     <div class="col-md-6">
         <h4>Brand Information</h4>
         <p>{{$brand->name}}</p>
-        <p>{{$brand->cat_id}}</p>
+        <p>{{$brand->catinfo->name}}</p>
        
         <img height="600" width="500" src="{{asset('backend/assets/brand/'.$brand->image)}}" alt="">
     </div>

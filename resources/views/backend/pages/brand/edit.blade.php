@@ -39,7 +39,7 @@
                     <label for="cat_id" class="col-sm-3 col-form-label">Category</label>
                     <div class="col-sm-9">
                         <select name="cat_id" id="cat_id" class="form-control cat_id">
-                            <option value="{{$brand->cat_id}}">{{$brand->cat_id}}</option>
+                            <option value="{{$brand->cat_id}}">{{$brand->catinfo->name}}</option>
                             @foreach ($cats as $cat)
                             <option value="{{$cat->id}}">{{$cat->name}}</option>
                             @endforeach
